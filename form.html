@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Formulir Biodata</title>
+		<style type="text/css">
+			body{
+				margin: 0 auto;
+				text-align:center;
+			}
+			.header{
+				margin:0 auto;
+				border-radius:5px;
+				background-color:#CCCCCC;
+				color:#FFFFFF;
+				width:1000px;
+				height:75px;
+				font-size:60px;
+			}
+			.form{
+				width:500px;
+				height:750px;
+				margin-top:10px;
+				margin-left:130px;
+				background:#666666;
+				float:left;
+				border-radius:5px;
+			}
+			.biodata{
+				width:500px;
+				height:750px;
+				margin-top:10px;
+				margin-right:130px;
+				background:#666666;
+				float:right;
+				border-radius:5px;
+			}
+		</style>
+		<script language="javascript" type="text/javascript">
+			function proses(){
+				var form=document.formulir;			//menangkap inputan yg akan ditampilkan dihasil
+				var Nama=form.nama.value;
+				var Alamat=form.alamat.value;
+				var JK="";
+				if(form.jk[0].checked==true && form.jk[1].checked==false){
+					JK=form.jk[0].value;
+				}else if(form.jk[0].checked==false && form.jk[1].checked==true){
+					JK=form.jk[1].value;
+				}else{
+					alert("Silikan Pilih Jenis Kelamin Anda!!!");
+				}
+				var lahir=form.ttl.value;
+				var religi=form.agama.value;
+				var goldar=""
+				if(form.gd[0].checked==true && form.gd[1].checked==false && form.gd[2].checked==false &&form.gd[3].checked==false){
+					goldar=form.gd[0].value;
+				}else if(form.gd[0].checked==false && form.gd[1].checked==true && form.gd[2].checked==false &&form.gd[3].checked==false){
+					goldar=form.gd[1].value;
+				}else if(form.gd[0].checked==false && form.gd[1].checked==false && form.gd[2].checked==true &&form.gd[3].checked==false){
+					goldar=form.gd[2].value;
+				}else if(form.gd[0].checked==false && form.gd[1].checked==false && form.gd[2].checked==false &&form.gd[3].checked==true){
+					goldar=form.gd[3].value;
+				}else{
+					alert("Silikan Pilih Golongan Darah Anda!!!");
+				}
+				var Kerjaan=form.kerja.value;
+				var Hp=form.hp.value;
+				var Email=form.mail.value;
+				var Website=form.site.value;
+				var sekolah=form.pendidikan.value;
+				var Org=form.organisasi.value;
+				var PRestasi=form.prestasi.value;
+				
+				var Biodata=document.bio;	//menampilkan hasil dari form
+				Biodata.name.value=Nama;
+				Biodata.address.value=Alamat;
+				Biodata.Jk.value=JK;
+				Biodata.TTL.value=lahir;
+				Biodata.Agama.value=religi;
+				Biodata.GD.value=goldar;
+				Biodata.KERJA.value=Kerjaan;
+				Biodata.HP.value=Hp;
+				Biodata.Mail.value=Email;
+				Biodata.Site.value=Website;
+				Biodata.Pendidikan.value=sekolah;
+				Biodata.Organisasi.value=Org;
+				Biodata.Prestasi.value=PRestasi;
+			}
+			function cancel(){
+				var Biodata=document.bio;	
+				Biodata.name.value="";
+				Biodata.address.value="";
+				Biodata.Jk.value="";
+				Biodata.TTL.value="";
+				Biodata.Agama.value="";
+				Biodata.GD.value="";
+				Biodata.KERJA.value="";
+				Biodata.HP.value="";
+				Biodata.Mail.value="";
+				Biodata.Site.value="";
+				Biodata.Pendidikan.value="";
+				Biodata.Organisasi.value="";
+				Biodata.Prestasi.value="";
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div class="header">Formulir Biodata</div>
+		<div class="form">
+			<h3>Form Pengisian Biodata</h3>
+			<form action="#" method="post" name="formulir">
+				<table border="0">
+					<tr>
+						<td>Nama</td>
+						<td>:</td>
+						<td><input type="text" name="nama" size="25" /></td>
+					</tr>
+					<tr>
+						<td>Alamat</td>
+						<td>:</td>
+						<td><textarea cols="20" rows="5" name="alamat"></textarea></td>
+					</tr>
+					<tr>
+						<td>Jenis Kelamin</td>
+						<td>:</td>
+						<td>
+							<input type="radio" name="jk" value="Laki-Laki" />Laki-Laki
+							<input type="radio" name="jk" value="Perempuan" />Perempuan
+						</td>
+					</tr>
+					<tr>
+						<td>TTL</td>
+						<td>:</td>
+						<td><input type="text" name="ttl" size="25"></td>
+					</tr>
+					<tr>
+						<td>Agama</td>
+						<td>:</td>
+						<td>
+							<select name="agama">
+								<option>Islam</option>
+								<option>Protestan</option>
+								<option>Katolik</option>
+								<option>Hindu</option>
+								<option>Budha</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Golongan Darah</td>
+						<td>:</td>
+						<td>
+							<input type="radio" name="gd" value="A">A
+							<input type="radio" name="gd" value="B">B
+							<input type="radio" name="gd" value="AB">AB
+							<input type="radio" name="gd" value="O">O
+						</td>
+					</tr>
+					<tr>
+						<td>Pekerjaan</td>
+						<td>:</td>
+						<td>
+							<select name="kerja">
+								<option>Pengusaha</option>
+								<option>Karyawan Swasta</option>
+								<option>PNS</option>
+								<option>Pelajar</option>
+								<option>Lain-Lain</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>No.HP</td>
+						<td>:</td>
+						<td><input type="text" name="hp" size="25"></td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td>:</td>
+						<td><input type="text" name="mail" size="25"></td>
+					</tr>
+					<tr>
+						<td>Website</td>
+						<td>:</td>
+						<td><input type="text" name="site" size="25"></td>
+					</tr>
+					<tr>
+						<td>Riwayat Pendidikan</td>
+						<td>:</td>
+						<td><textarea cols="20" rows="5" name="pendidikan"></textarea></td>
+					</tr>
+					<tr>
+						<td>Pengalaman Organisasi</td>
+						<td>:</td>
+						<td><textarea cols="20" rows="5" name="organisasi"></textarea></td>
+					</tr>
+					<tr>
+						<td>Prestasi yang pernah diraih</td>
+						<td>:</td>
+						<td><textarea cols="20" rows="5" name="prestasi"></textarea></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td>
+							<input type="button" value="Kirim" onClick="proses()" />
+							<input type="reset" value="Reset" onClick="cancel()" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div class="biodata">
+			<h3>Hasil Pengisian Biodata</h3>
+			<form name="bio" action="#">
+			<table border="0">
+				<tr>
+					<td>Nama</td>
+					<td>:</td>
+					<td><input type="text" name="name" size="25" readonly /></td>
+				</tr>
+				<tr>
+					<td>Alamat</td>
+					<td>:</td>
+					<td><textarea cols="20" rows="5" name="address" readonly></textarea></td>
+				</tr>
+				<tr>
+					<td>Jenis Kelamin</td>
+					<td>:</td>
+					<td><input type="text" name="Jk" size="25" readonly /></td>
+				</tr>
+				<tr>
+					<td>TTL</td>
+					<td>:</td>
+					<td><input type="text" name="TTL" size="25" readonly /></td>
+				</tr>
+				<tr>
+					<td>Agama</td>
+					<td>:</td>
+					<td><input type="text" name="Agama" size="25" readonly /></td>
+				</tr>
+				<tr>
+					<td>Golongan Darah</td>
+					<td>:</td>
+					<td><input type="text" name="GD" size="25" readonly /></td>
+				</tr>
+				<tr>
+					<td>Pekerjaan</td>
+					<td>:</td>
+					<td><input type="text" name="KERJA" size="25" readonly /></td>
+				</tr>
+				<tr>
+					<td>No.HP</td>
+					<td>:</td>
+					<td><input type="text" name="HP" size="25" readonly /></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td>:</td>
+					<td><input type="text" name="Mail" size="25" readonly /></td>
+				</tr>
+				<tr>
+					<td>Website</td>
+					<td>:</td>
+					<td><input type="text" name="Site" size="25" readonly /></td>
+				</tr>
+				<tr>
+					<td>Riwayat Pendidikan</td>
+					<td>:</td>
+					<td><textarea cols="20" rows="5" name="Pendidikan" readonly ></textarea></td>
+				</tr>
+				<tr>
+					<td>Pengalaman Organisasi</td>
+					<td>:</td>
+					<td><textarea cols="20" rows="5" name="Organisasi" readonly ></textarea></td>
+				</tr>
+				<tr>
+					<td>Prestasi yang pernah diraih</td>
+					<td>:</td>
+					<td><textarea cols="20" rows="5" name="Prestasi" readonly ></textarea></td>
+				</tr>
+			</table>
+			</form>
+		</div>
+	</body>
+</html>
